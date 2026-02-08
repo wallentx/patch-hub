@@ -71,8 +71,9 @@ impl MailingListSelection {
         }
 
         // Prioritize exact matches by placing them first
-        exact_matches.append(&mut partial_matches);
-        self.possible_mailing_lists = exact_matches;
+        let mut all_matches = exact_matches;
+        all_matches.append(&mut partial_matches);
+        self.possible_mailing_lists = all_matches;
         self.highlighted_list_index = 0;
     }
 
